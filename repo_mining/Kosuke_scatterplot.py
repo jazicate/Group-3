@@ -14,6 +14,7 @@ weeks = []
 
 print(f"Reading data from {csv_file}...")
 
+
 with open(csv_file, 'r', encoding='utf-8') as f:
     reader = csv.DictReader(f)
     for row in reader:
