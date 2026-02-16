@@ -128,7 +128,7 @@ Each test should include:
 # Test: Set Password 
 # Author: Jerome Azicate
 # Date: 2026-02-16
-# Description: Ensure passwords are properly hashed and stored properly.
+# Description: Ensure passwords are properly hashed and stored.
 # ===========================
 def test_set_password():
     """Test if passwords are properly hashed and stored properly"""
