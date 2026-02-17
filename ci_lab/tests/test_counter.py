@@ -229,7 +229,7 @@ class TestCounterEndpoints:
         assert isinstance(response.get_json()["count"], int)  
 
         # TODO: Add an assertion to check the exact count value
-
+        
     # ===========================
     # Test: Retrieve counters with values greater than a threshold
     # Author: Student 9
@@ -264,6 +264,7 @@ class TestCounterEndpoints:
         assert response.status_code == HTTPStatus.OK
 
         # TODO: Add an assertion to ensure 'b' (value=2) is returned as the lowest.
+        assert 'a' not in response.get_json()  # Ensure 'a' (value=5) is excluded
 
     # ===========================
     # Test: Validate counter names (prevent special characters)
@@ -277,3 +278,6 @@ class TestCounterEndpoints:
         assert response.status_code == HTTPStatus.BAD_REQUEST
 
         # TODO: Add an assertion to verify the error message specifically says 'Invalid counter name'S
+        assert "Invalid counter name" in response.get_json().get("error", "")
+        
+    
