@@ -264,7 +264,7 @@ class TestCounterEndpoints:
         assert response.status_code == HTTPStatus.OK
 
         # TODO: Add an assertion to ensure 'b' (value=2) is returned as the lowest.
-        assert "a" in response.get_json()
+        assert 'a' not in response.get_json()  # Ensure 'a' (value=5) is excluded
 
     # ===========================
     # Test: Validate counter names (prevent special characters)
