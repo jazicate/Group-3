@@ -42,24 +42,8 @@ jobs:
             const prNumber = context.payload.pull_request.number;
             const status = "${{ job.status }}";
 
-            if (status === 'failure'){
-              await github.rest.issues.createComment({
-                ...context.repo,
-                issue_number: prNumber,
-                body: 'CI checks status: failed'
-              });
-            }
-            else if (status === 'success'){
-              await github.rest.issues.createComment({
-                ...context.repo,
-                issue_number: prNumber,
-                body: 'CI checks status: passed'
-              });
-            }
-            else {
-              await github.rest.issues.createComment({
-                ...context.repo,
-                issue_number: prNumber,
-                body: `CI checks status: ${status}`
-              });
-            }
+            await github.rest.issues.createComment({
+              ...context.repo,
+              issue_number: prNumber,
+              body: `CI checks status: ${status}`;
+            });
